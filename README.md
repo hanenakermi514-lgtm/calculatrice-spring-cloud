@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>TP4 Spring Cloud</title>
-<style>body{font-family:system-ui,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;line-height:1.5}
-img{max-width:100%;border:1px solid #ccc;margin:.5rem 0}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
-pre{background:#f4f4f4;padding:8px;overflow:auto}</style></head><body><h1>TP4 – Microservices avec Spring Cloud : Eureka, OpenFeign, Gateway, Swagger UI et Lombok</h1>
+<h1>TP4 – Microservices avec Spring Cloud : Eureka, OpenFeign, Gateway, Swagger UI et Lombok</h1>
 <p><strong>Filière :</strong> MPSRCC1
 <strong>Enseignantes :</strong> Corinne Amel ZAYANI, Amal ABID</p>
 <hr />
