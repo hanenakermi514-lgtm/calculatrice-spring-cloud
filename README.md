@@ -54,17 +54,25 @@ client → passerelle (route + annuaire) → `historique-service` → OpenFeign 
 
 **Tableau de bord Eureka : trois services enregistrés** (`CALCUL-SERVICE`, `GATEWAY-SERVICE`, `HISTORIQUE-SERVICE`, tous `UP`). Le message rouge sur le mode d'auto-préservation est attendu (`enable-self-preservation=false`).
 
-![Tableau de bord Eureka](captures/01-eureka-dashboard.png)
+![Tableau de bord Eureka]
+<img width="1917" height="931" alt="Capture d&#39;écran 2026-11-14 115251" src="https://github.com/user-attachments/assets/0023423b-43e8-4f38-98ad-8e620af2716a" />
+
 
 **Swagger UI de `calcul-service`, instance 8083, testé directement :**
 
-![Swagger UI calcul-service 8083](captures/02-swagger-calcul-8083-direct.png)
+<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/aba2c631-b447-47a3-b460-ccec3c055381" />
+
 
 **Swagger UI des deux microservices avec `server.forward-headers-strategy=framework` :**
 
-![Swagger calcul-service](captures/03-swagger-calcul-forward-headers.png)
+![Swagger calcul-service]
+<img width="1831" height="972" alt="Capture d&#39;écran 2026-11-15 145602" src="https://github.com/user-attachments/assets/edd036af-f395-477c-8e63-7604a10e5b49" />
 
-![Swagger historique-service](captures/04-swagger-historique-forward-headers.png)
+
+
+![Swagger historique-service]
+<img width="1831" height="972" alt="Capture d&#39;écran 2026-11-15 145602" src="https://github.com/user-attachments/assets/0ccfea72-e8c2-412f-bf67-bc1c0b13d867" />
+
 
 ### Partie D : OpenFeign
 
@@ -80,43 +88,66 @@ client → passerelle (route + annuaire) → `historique-service` → OpenFeign 
 
 **Swagger UI de la passerelle.** Sur ces deux captures, la zone *Servers* indique l'adresse de l'instance (`192.168.115.1:8082` / `:8083`), c'est-à-dire l'adresse vue **sans** les en-têtes `X-Forwarded-*` (voir la réponse à la question 10 de synthèse) :
 
-![Passerelle, définition historique-service](captures/05-gateway-swagger-historique-sans-forward.png)
+![Passerelle, définition historique-service]
+<img width="1831" height="972" alt="Capture d&#39;écran 2026-11-15 145602" src="https://github.com/user-attachments/assets/8f9191b2-8272-45ee-8ac8-ab87da8310ee" />
 
-![Passerelle, définition calcul-service](captures/06-gateway-swagger-calcul-sans-forward.png)
+
+![Passerelle, définition calcul-service]
+<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/873c5c37-ad86-4752-934d-7bd754c05571" />
 
 **Liste « Select a definition » de la passerelle (une entrée par microservice) :**
 
-![Select a definition](captures/07-gateway-swagger-select-definition.png)
+![Select a definition]
+<img width="1917" height="1001" alt="Capture d&#39;écran 2026-11-14 114650" src="https://github.com/user-attachments/assets/c15d0e33-3332-498a-8ad8-c84590ae6840" />
+
 
 **Configuration dynamique (E.5).** Les URI vues du client contiennent le nom du service en premier segment :
 
 `GET /calcul-service/calcul/somme?a=2&b=3` → `5`
 
-![Dynamique : somme](captures/08-dynamique-somme.png)
+![Dynamique : somme]
+<img width="1487" height="496" alt="Capture d&#39;écran 2026-11-14 115032" src="https://github.com/user-attachments/assets/598c2249-f13c-492f-bd04-b55ec4c299dd" />
+
 
 `GET /calcul-service/calcul/produit?a=6&b=7` → `42`
 
-![Dynamique : produit](captures/09-dynamique-produit.png)
+![Dynamique : produit]
+
+<img width="1423" height="577" alt="Capture d&#39;écran 2026-11-14 115202" src="https://github.com/user-attachments/assets/dca5ea0c-3c37-4903-a7e8-fd1e93b8e84e" />
+
 
 `GET /historique-service/operations` → `[]` (historique vide, rien n'a encore été créé)
 
-![Dynamique : historique](captures/10-dynamique-historique-operations.png)
+![Dynamique : historique]
+
+<img width="1303" height="477" alt="Capture d&#39;écran 2026-11-14 115737" src="https://github.com/user-attachments/assets/bef50609-148c-4296-bfea-4e39e83e4efc" />
+
 
 **Actuator de la passerelle** : `/actuator/gateway` liste les endpoints disponibles, `/actuator/gateway/routes` liste les routes créées dynamiquement (une par service de l'annuaire, avec son filtre `RewritePath`) :
 
-![Actuator gateway](captures/11-actuator-gateway.png)
+![Actuator gateway]
+<img width="1917" height="481" alt="Capture d&#39;écran 2026-11-14 120953" src="https://github.com/user-attachments/assets/6f23b0ac-2ffb-4960-92da-73e164401299" />
 
-![Actuator gateway routes](captures/12-actuator-gateway-routes.png)
+
+![Actuator gateway routes]
+<img width="1917" height="467" alt="Capture d&#39;écran 2026-11-14 122927" src="https://github.com/user-attachments/assets/f11fbbbd-1c11-425f-9c83-62031b44f9d5" />
+
 
 **Test depuis le Swagger UI de la passerelle** : `GET /calcul/somme` avec `a = 4` et `b = 6`. La *Request URL* passe bien par `localhost:8888/calcul-service/...` et la réponse est `10` (statut 200) :
 
-![Swagger passerelle : paramètres](captures/13-swagger-gateway-somme-parametres.png)
+![Swagger passerelle : paramètres]
+<img width="1733" height="678" alt="Capture d&#39;écran 2026-11-14 122813" src="https://github.com/user-attachments/assets/90e66bc9-14d7-48d7-a842-ae41edbdf143" />
 
-![Swagger passerelle : réponse](captures/14-swagger-gateway-somme-reponse.png)
+
+![Swagger passerelle : réponse]
+<img width="1740" height="807" alt="Capture d&#39;écran 2026-11-14 122821" src="https://github.com/user-attachments/assets/33ee472e-25dd-4315-8adc-bcb57eb4db7f" />
+
 
 **Les programmes en cours d'exécution (fenêtre Services d'IntelliJ)** : passerelle 8888, `calcul-service` 8083, Eureka 8761, historique 8082 :
 
-![Services IntelliJ](captures/15-intellij-services.png)
+![Services IntelliJ]
+<img width="522" height="317" alt="Capture d&#39;écran 2026-11-15 152400" src="https://github.com/user-attachments/assets/a4c24985-a5d6-462e-8591-730eb2d6ba9c" />
+
 
 ---
 
