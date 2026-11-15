@@ -66,8 +66,7 @@ client → passerelle (route + annuaire) → `historique-service` → OpenFeign 
 **Swagger UI des deux microservices avec `server.forward-headers-strategy=framework` :**
 
 ![Swagger calcul-service]
-<img width="1831" height="972" alt="Capture d&#39;écran 2026-11-15 145602" src="https://github.com/user-attachments/assets/edd036af-f395-477c-8e63-7604a10e5b49" />
-
+<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/d7a419f6-55ec-41b9-86b0-cef92de668f7" />
 
 
 ![Swagger historique-service]
