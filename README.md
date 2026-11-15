@@ -59,8 +59,8 @@ client → passerelle (route + annuaire) → `historique-service` → OpenFeign 
 
 
 **Swagger UI de `calcul-service`, instance 8083, testé directement :**
+<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/d8a42759-4bc8-41ff-9f59-2b0b4cb3f140" />
 
-<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/aba2c631-b447-47a3-b460-ccec3c055381" />
 
 
 **Swagger UI des deux microservices avec `server.forward-headers-strategy=framework` :**
@@ -89,16 +89,16 @@ client → passerelle (route + annuaire) → `historique-service` → OpenFeign 
 **Swagger UI de la passerelle.** Sur ces deux captures, la zone *Servers* indique l'adresse de l'instance (`192.168.115.1:8082` / `:8083`), c'est-à-dire l'adresse vue **sans** les en-têtes `X-Forwarded-*` (voir la réponse à la question 10 de synthèse) :
 
 ![Passerelle, définition historique-service]
-<img width="1831" height="972" alt="Capture d&#39;écran 2026-11-15 145602" src="https://github.com/user-attachments/assets/8f9191b2-8272-45ee-8ac8-ab87da8310ee" />
+<img width="1917" height="1001" alt="Capture d&#39;écran 2026-11-14 114650" src="https://github.com/user-attachments/assets/4a79d377-69b3-47db-a39b-0367da07e37b" />
 
 
 ![Passerelle, définition calcul-service]
-<img width="1865" height="1005" alt="Capture d&#39;écran 2026-11-15 150045" src="https://github.com/user-attachments/assets/873c5c37-ad86-4752-934d-7bd754c05571" />
+<img width="1917" height="982" alt="Capture d&#39;écran 2026-11-14 114706" src="https://github.com/user-attachments/assets/13c1a8fb-1adc-4019-a3ba-e34d5364bc02" />
 
 **Liste « Select a definition » de la passerelle (une entrée par microservice) :**
 
 ![Select a definition]
-<img width="1917" height="1001" alt="Capture d&#39;écran 2026-11-14 114650" src="https://github.com/user-attachments/assets/c15d0e33-3332-498a-8ad8-c84590ae6840" />
+<img width="1907" height="1047" alt="Capture d&#39;écran 2026-11-15 154419" src="https://github.com/user-attachments/assets/e60807f8-4d0c-4d8c-9122-dac7f51e8344" />
 
 
 **Configuration dynamique (E.5).** Les URI vues du client contiennent le nom du service en premier segment :
